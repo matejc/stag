@@ -132,7 +132,7 @@ function main(url, template, output, options) {
       if (error) return done(error);
       env.renderString(str, data, function onRender(error, content) {
         if (error) return done(error);
-        rw.writeFile(output, content, done);
+        rw.writeFile(output, content, "utf8", done);
       });
     });
   }
@@ -141,7 +141,7 @@ function main(url, template, output, options) {
     LOG("rendering from template:", template);
     return env.render(template, data, function onRender(error, content) {
       if (error) return done(error);
-      rw.writeFile(output, content, done);
+      rw.writeFile(output, content, "utf8", done);
     });
   }
 
